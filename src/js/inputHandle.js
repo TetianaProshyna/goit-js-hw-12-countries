@@ -4,6 +4,8 @@ import * as PNotifyMobile from '@pnotify/mobile/dist/PNotifyMobile.js';
 import fetchCountries from '/js/fetchCountries.js';
 import { defaults } from '@pnotify/core';
 import '@pnotify/core/dist/BrightTheme.css';
+import { Stack } from '@pnotify/core';
+
 defaults.styling = 'brighttheme';
 defaults.icons = 'brighttheme';
 
@@ -23,6 +25,9 @@ function handleInput(event) {
           text: 'Too many matches found. Please enter a more specific query!',
           type: 'error',
           delay: 4000,
+          stack: new Stack({
+            dir1: 'up',
+          }),
         });
       }
       if (data.length >= 2 && data.length <= 10) {
